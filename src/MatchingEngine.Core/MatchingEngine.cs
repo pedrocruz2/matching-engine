@@ -12,8 +12,9 @@ namespace MatchingEngine.Core
             switch (order.Type)
             {
                 case OrderType.Market:
+                    int originalQuantity = order.Quantity;
                     ExecuteMarketOrder(order);
-                    return $"Market order executed: {order.Side} {order.Quantity}";
+                    return $"Market order executed: {order.Side} {originalQuantity}";
                     
                 case OrderType.Limit:
                     string result = ExecuteLimitOrder(order);
