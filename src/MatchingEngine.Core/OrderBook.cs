@@ -14,7 +14,7 @@ namespace MatchingEngine.Core
         public void AddOrder(Order order)
         {
             if (order.Type == OrderType.Market)
-                throw new InvalidOperationException("Market orders should not be added to the order book");
+                throw new InvalidOperationException("Ordens a mercado não devem ser adicionadas no livro");
                 
             var orderList = order.Side == Side.Buy ? buyOrders : sellOrders;
             orderList.Add(order);

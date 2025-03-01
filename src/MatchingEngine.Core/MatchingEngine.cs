@@ -14,19 +14,19 @@ namespace MatchingEngine.Core
                 case OrderType.Market:
                     int originalQuantity = order.Quantity;
                     ExecuteMarketOrder(order);
-                    return $"Market order executed: {order.Side} {originalQuantity}";
+                    return $"Market order executada: {order.Side} {originalQuantity}";
                     
                 case OrderType.Limit:
                     string result = ExecuteLimitOrder(order);
                     if (order.Quantity > 0)
                     {
                         orderBook.AddOrder(order);
-                        return $"Order created: {order} {result}";
+                        return $"Order criada: {order} {result}";
                     }
-                    return $"Order fully executed {result}";
+                    return $"Order executada por completo: {result}";
                     
                 default:
-                    throw new ArgumentException($"Unsupported order type: {order.Type}");
+                    throw new ArgumentException($"Type {order.Type} não suportado, utilize apenas limit ou market");
             }
         }
         
@@ -73,7 +73,7 @@ namespace MatchingEngine.Core
                     break;
                     
                 default:
-                    throw new ArgumentException($"Unsupported order side: {order.Side}");
+                    throw new ArgumentException($"Side {order.Side} não suportado, utilize apenas buy ou sell");
             }
         }
         
@@ -126,7 +126,7 @@ namespace MatchingEngine.Core
                     break;
                     
                 default:
-                    throw new ArgumentException($"Unsupported order side: {order.Side}");
+                    throw new ArgumentException($"Side {order.Side} não suportado, utilize apenas buy ou sell");
             }
             
             return tradesInfo;

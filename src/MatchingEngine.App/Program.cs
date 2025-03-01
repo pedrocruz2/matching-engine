@@ -55,9 +55,9 @@ namespace MatchingEngine.App
                         bool success = engine.CancelOrder(orderId);
                         
                         if (success)
-                            Console.WriteLine("Order cancelled");
+                            Console.WriteLine("Order cancelada");
                         else
-                            Console.WriteLine("Order not found");
+                            Console.WriteLine("Order não encontrada");
                     }
                     else if (parts[0].ToLower() == "modify")
                     {
@@ -180,9 +180,9 @@ namespace MatchingEngine.App
             bool success = engine.ModifyOrder(orderId, newPrice, newQuantity);
             
             if (success)
-                Console.WriteLine("Order modified");
+                Console.WriteLine("Order alterada");
             else
-                Console.WriteLine("Order not found");
+                Console.WriteLine("Order não encontrada");
         }
         
         static void PrintUsage()
